@@ -1,0 +1,20 @@
+# Homework from Susan
+# Create bin directory
+# Copy a file into the bin
+# Do this with Makefile and Jenkins Pipeline
+
+BIN_DIR = bin
+
+all: clean build copy
+
+build:
+	@echo "Creating a bin directory"
+	mkdir $(BIN_DIR)
+
+clean:
+	@echo "Cleaning up..."
+	rm -rf $(BIN_DIR)
+
+copy:
+	@echo "Copying file(s) into the bin"
+	cp Makefile /var/lib/jenkins/workspace/MakeFile-ProjectHW/bin/
