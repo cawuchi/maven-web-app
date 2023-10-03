@@ -6,10 +6,10 @@ define say_hello
 	@echo "Hello, $(1)!"
 endef
 
-all: say_hello_world say_hello_John
+all: say_hello_world say_hello_john
 
 say_hello_world:
 	$(call say_hello, "world")
 
-say_hello_John:
+say_hello_john:
 	$(call say_hello, "John")
