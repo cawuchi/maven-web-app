@@ -9,5 +9,6 @@ build:
 clean:
 	@echo "Cleaning up..."
 	rm -rf $(BIN_DIR)
+
 test:
 	@echo "Testing..."
