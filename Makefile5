@@ -1,0 +1,15 @@
+# Sample for Makefile5
+# Sample Functions with Multiple Indexes
+
+# Define a function as "say_hello"
+define say_hello
+	@echo "Hello, $(1) $(2)!"
+endef
+
+all: say_hello_world say_hello_john
+
+say_hello_world:
+	$(call say_hello, "Francisca", "Dogbatse")
+
+say_hello_john:
+	$(call say_hello, "Johnson", "Nwala")
