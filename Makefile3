@@ -2,7 +2,7 @@
 # Sample Makefile with a Function
 
 # Define a function called 'my_function'
-define my_function:
+define my_function
 	@echo "This is a function."
 	@echo "You can put multiple commands here."
 	@echo "For example, you can add:"
