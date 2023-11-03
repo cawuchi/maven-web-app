@@ -90,7 +90,7 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Acada Learning Releases Nexus Repository</name>
-	      <url>http://54.183.140.105/repository/paypal_release/</url>
+	      <url>http://54.183.140.105:7050/repository/paypal_release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
