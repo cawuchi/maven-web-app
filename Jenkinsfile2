@@ -1,0 +1,33 @@
+pipeline{
+    agent any
+    tools{
+        maven "maven"
+    }
+    stages{
+        stage("1. Git Clone"){
+            steps{
+                git credentialsId: "GitHub_Cred", url: "https://github.com/cawuchi/maven-web-app.git"
+            }
+        }
+         stage("2. Code Build"){
+            steps{
+                sh "mvn clean package"
+            }
+        }
+        stage("3. CodeQuality"){
+            steps{
+                sh "mvn sonar:sonar"
+            }
+        }
+        stage("4. Backing up Artifacts"){
+            steps{
+                sh "mvn deploy"
+            }
+        }
+        stage("5. Deploying to TomCat"){
+            steps{
+                deploy adapters: [tomcat9(credentialsId: 'TomCat_Cred', path: '', url: 'http://54.183.140.105:7010/')], contextPath: null, war: 'target/*war'
+            }
+        }
+    }
+}
