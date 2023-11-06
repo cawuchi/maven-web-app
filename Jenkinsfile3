@@ -1,0 +1,30 @@
+pipeline{
+    agent any
+    tools{
+        maven "maven"
+    }
+    stages{
+        stage("1. Git Clone"){
+            steps{
+                git credentialsId: "GitHub_Cred", url: "https://github.com/cawuchi/maven-web-app.git"
+            }
+        }
+         stage("2. Code Build"){
+            steps{
+                sh "mvn clean package"
+            }
+        }
+       stage("6. Build image"){
+            steps{
+                sh 'docker build -t cawuchi/maven-web-apps . '
+            }
+        }
+        stage("7. Push image"){
+            steps{
+                withDockerRegistry(credentialsId: 'Docker_Cred') {
+                    sh 'docker push cawuchi/maven-web-apps:latest'
+                }
+            }
+        }
+    }
+}
