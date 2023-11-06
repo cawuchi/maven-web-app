@@ -21,7 +21,7 @@ pipeline{
         }
         stage("7. Push image"){
             steps{
-                withDockerRegistry(credentialsId: 'Docker_Cred', url: " ") {
+                withDockerRegistry(credentialsId: 'Docker_Cred', url: "https://index.docker.io/v1/") {
                     sh 'docker push cawuchi/maven-web-apps:latest'
                 }
             }
