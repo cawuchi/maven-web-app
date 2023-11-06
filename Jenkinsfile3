@@ -14,6 +14,16 @@ pipeline{
                 sh "mvn clean package"
             }
         }
+     stage("3. CodeQuality"){
+            steps{
+                sh "mvn sonar:sonar"
+            }
+        }
+        stage("4. Backing up Artifacts"){
+            steps{
+                sh "mvn deploy"
+            }
+        }
        stage("6. Build image"){
             steps{
                 sh 'docker build -t cawuchi/maven-web-apps . '
